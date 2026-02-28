@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="si">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Lanka Institute of Advanced Technological Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background-color: #555;
+            padding: 8px 30px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+            transform: translateY(-2px);
+        }
+
+        /* ===== STICKY NAVBAR ===== */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-header.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== MAIN NAVBAR ===== */
+        .navbar {
+            background-color: #420701;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-header.scrolled .navbar {
+            padding: 10px 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-header.scrolled .logo {
+            font-size: 18px;
+        }
+
+        .logo img {
+            margin-right: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-header.scrolled .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-header.scrolled .menu {
+            gap: 25px;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-header.scrolled .menu a {
+            font-size: 15px;
+        }
+
+        .menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .menu a:hover:after {
+            width: 100%;
+        }
+
+        .search {
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 5px;
+        }
+
+        .search:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== IMPROVED CAROUSEL STYLES ===== */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 70vh;
+            background-color: #f0f0f0;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .carousel-slide {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.8s ease;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(66, 7, 1, 0.85);
+            color: white;
+            padding: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+            transform: translateY(0);
+            transition: transform 0.5s ease;
+        }
+
+        .slide.active .caption {
+            transform: translateY(0);
+        }
+
+        /* Improved Carousel Buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(66, 7, 1, 0.8);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 0.8;
+            backdrop-filter: blur(4px);
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(66, 7, 1, 1);
+            transform: translateY(-50%) scale(1.15);
+            opacity: 1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .prev-btn {
+            left: 30px;
+        }
+
+        .next-btn {
+            right: 30px;
+        }
+
+        /* Improved Indicators */
+        .indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .indicator.active {
+            background-color: #fff;
+            transform: scale(1.3);
+            border-color: rgba(66, 7, 1, 0.8);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .indicator:hover {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 100%;
+            z-index: 9;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 5s linear;
+        }
+
+        .slide.active .progress-bar {
+            transform: scaleX(1);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #420701;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #5a0a02;
+            transform: translateY(-5px);
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #420701;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #420701;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            text-align: center;
+            border-top: 5px solid #420701;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #420701;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-btn {
+            background: #420701;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .card-btn:hover {
+            background: #5a0a02;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(66, 7, 1, 0.3);
+        }
+
+        .soft-corner {
+            background-color: #3498db;
+            color: white;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 15px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            }
+        }
+
+        .horizontal-footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .footer-sections {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            padding: 0 15px;
+        }
+
+        .footer-section h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .footer-section ul li a:hover {
+            color: #3498db;
+            transform: translateX(5px);
+        }
+
+        .address-info {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #bdc3c7;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        .news-section {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+
+        .news-section h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .news-item {
+            margin-bottom: 8px;
+            color: #ecf0f1;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .top-bar {
+                justify-content: center;
+                gap: 20px;
+                padding: 8px 15px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .menu {
+                gap: 15px;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .carousel {
+                height: 50vh;
+            }
+
+            .caption {
+                font-size: 1.3rem;
+                padding: 15px;
+            }
+
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+
+            .prev-btn {
+                left: 15px;
+            }
+
+            .next-btn {
+                right: 15px;
+            }
+
+            .indicators {
+                bottom: 20px;
+            }
+
+            .sticky-header.scrolled .navbar {
+                padding: 10px 15px;
+            }
+
+            .sticky-header.scrolled .menu {
+                gap: 10px;
+            }
+
+            .footer-sections {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .footer-section {
+                min-width: 100%;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar {
+                gap: 10px;
+                padding: 6px 10px;
+            }
+
+            .top-bar a {
+                font-size: 9px;
+            }
+
+            .menu {
+                gap: 8px;
+            }
+
+            .menu a {
+                font-size: 13px;
+            }
+
+            .sticky-header.scrolled .menu a {
+                font-size: 12px;
+            }
+
+            .carousel {
+                height: 40vh;
+            }
+
+            .caption {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .sticky-header.scrolled .logo {
+                font-size: 14px;
+            }
+
+            .card {
+                min-width: 100%;
+            }
+
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+
+        /* Animation for page load */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .logo1 {
+            background-color: #520303;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <a href="Untit-2.html">Apply</a>
+        <a href="#">Faculty & Staff</a>
+        <a href="#">Alumni</a>
+        <a href="#">Legacy-Site</a>
+    </div>
+
+    <!-- Sticky Header with Navbar -->
+    <header class="sticky-header">
+        <div class="navbar">
+            <div class="logo">
+                <img src="ddf98812-e391-4c02-a701-38b9eb8402d3.png" width="80" height="80" alt="SLIATE Logo">
+                S L I A T E <br>
+                ශ්‍රී ලංකා උසස් තාක්ෂණ අධ්‍යාපන ආයතනය
+            </div>
+
+            <div class="menu">
+                <a href="Untit-2.html">Apply</a>
+                <a href="academic.html">Academic</a>
+                <a href="peoples.html">People</a>
+                <a href="about.html">About</a>
+                <a href="contac.html">Contacts</a>
+            </div>
+            <div class="search">🔍</div>
+        </div>
+    </header>
+
+    <div class="carousel">
+        <!-- Slides -->
+        <div class="carousel-slide">
+            <div class="slide active">
+                <img src="imagesslide1.jpg" alt="SLIATE Main Campus">
+                <div class="caption">SLIATE Main Campus</div>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="slide">
+                <img src="imagesslide2.jpg" alt="Advanced Technology Labs">
+                <div class="caption">Advanced Technology Labs</div>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="slide">
+                <img src="imagesslide3.jpg" alt="Student Activities">
+                <div class="caption">Student Activities</div>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button class="carousel-btn prev-btn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next-btn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Indicators -->
+        <div class="indicators">
+            <span class="indicator active" data-index="0"></span>
+            <span class="indicator" data-index="1"></span>
+            <span class="indicator" data-index="2"></span>
+        </div>
+    </div>
+    <div
+        style="width: 100%; height: 75px; color: #ffdd00; background-color: #420701; display: flex; align-items: center; padding: 10px 20px; gap: 15px;">
+        <img src="sls.png" alt="SLIATE Logo" style="width: 60px; height: 60px; object-fit: contain;">
+        <div style="font-family: 'Courier New', Courier, monospace; font-size: 18px; font-weight: bold;">
+            Sri Lanka Institute Advanced Technological Education<br>
+            ශ්‍රී ලංකා උසස් තාක්ෂණ අධ්‍යාපන ආයතනය
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <div class="content-section">
+        <h2 class="section-title">Latest Announcements</h2>
+
+        <div class="info-cards">
+            <div class="card">
+                <h3>First Semester Exam 2025</h3>
+                <p>Click here to view the examination timetable for the first semester of 2025. All students are
+                    required to check their schedules.</p>
+                <a href="exam.html" class="card-btn">View Timetable</a>
+            </div>
+
+            <div class="card">
+                <h3>Island Wide ATI</h3>
+                <p>Information about the Advanced Technological Institute programs available across Sri Lanka. Check
+                    schedules and locations.</p>
+                <a href="ati list.html" class="card-btn">View Details</a>
+            </div>
+
+            <div class="card">
+                <h3>Contact Us</h3>
+                <p>Get in touch with SLIATE administration, faculty, or support staff. We're here to help with your
+                    inquiries.</p>
+                <a href="contac.html" class="card-btn">Contact Now</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="studnet.html">
+                <button style="width: 280px; 
+                    height: 70px; 
+                    font-size: 20px; 
+                    background: linear-gradient(135deg, #420701, #5a0a02); 
+                    color: white; 
+                    border: none; 
+                    border-radius: 12px; 
+                    cursor: pointer; 
+                    font-weight: bold;
+                    box-shadow: 0 8px 25px rgba(66, 7, 1, 0.4);
+                    transition: all 0.3s ease;
+                    animation: pulse 2s infinite;">
+                    Group Project Students Details
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <footer class="horizontal-footer">
+        <div class="footer-sections">
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Ministry of Higher Education</a></li>
+                    <li><a href="http://www.gov.lk" target="_blank">www.gov.lk</a></li>
+                    <li><a href="#">University Grant Commission</a></li>
+                    <li><a href="contac.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Life @ SLIATE Section -->
+            <div class="footer-section">
+                <h3>Life @ SLIATE</h3>
+                <ul>
+                    <li><a href="#">Canteens</a></li>
+                    <li><a href="#">Student Hostels</a></li>
+                    <li><a href="#">Student Counseling</a></li>
+                    <li><a href="#">Sports and Games</a></li>
+                    <li><a href="#">Other Facilities</a></li>
+                </ul>
+            </div>
+
+            <!-- Institute Address -->
+            <div class="footer-section">
+                <h3>Sri Lanka Institute of Advanced Technological Education</h3>
+                <div class="address-info">
+                    <p>HND, Tangalle</p>
+                    <p>Yayawatta, Sri Lanka</p>
+                    <br>
+                    <p><strong>Contact:</strong></p>
+                    <p>Tel: (+94) 112 691307</p>
+                    <p>Tel: (+94) 112 691572</p>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section">
+                <h3>Social Media</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-link">
+                        <span>📘</span> Facebook
+                    </a>
+                    <a href="#" class="social-link">
+                        <span>🐦</span> Twitter
+                    </a>
+                    <a href="#" class="social-link">
+                        <span>📺</span> YouTube
+                    </a>
+                    <a href="#" class="social-link">
+                        <span>💼</span> LinkedIn
+                    </a>
+                </div>
+            </div>
+
+            <!-- News Section -->
+            <div class="footer-section">
+                <div class="news-section">
+                    <h3>News</h3>
+                    <div class="news-item">• New Academic Programs 2025</div>
+                    <div class="news-item">• Research Symposium Announcement</div>
+                    <div class="news-item">• Student Achievements</div>
+                    <div class="news-item">• Upcoming Events</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 SLIATE - Sri Lanka Institute of Advanced Technological Education. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sticky Navbar Implementation
+            const stickyHeader = document.querySelector('.sticky-header');
+            const backToTopBtn = document.getElementById('backToTop');
+
+            // Carousel variables
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const indicators = document.querySelectorAll('.indicator');
+            const carouselSlide = document.querySelector('.carousel-slide');
+            const progressBars = document.querySelectorAll('.progress-bar');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+            let autoSlideInterval;
+            let progressInterval;
+
+            // Function to handle scroll for sticky navbar
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    stickyHeader.classList.add('scrolled');
+                } else {
+                    stickyHeader.classList.remove('scrolled');
+                }
+
+                // Show/hide back to top button
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
+            }
+
+            // Function to scroll to top
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Function to move to next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            // Function to move to previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            // Function to update carousel display
+            function updateCarousel() {
+                // Smooth transition for slides
+                carouselSlide.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                // Update active class on slides
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentSlide) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+
+                // Reset progress bar
+                resetProgressBar();
+            }
+
+            // Function to go to specific slide
+            function goToSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+            }
+
+            // Function to reset progress bar
+            function resetProgressBar() {
+                // Clear any existing progress animation
+                progressBars.forEach(bar => {
+                    bar.style.transition = 'none';
+                    bar.style.transform = 'scaleX(0)';
+                });
+
+                // Force reflow to restart animation
+                void progressBars[0].offsetWidth;
+
+                // Start progress bar animation
+                if (progressBars[currentSlide]) {
+                    progressBars[currentSlide].style.transition = 'transform 5s linear';
+                    progressBars[currentSlide].style.transform = 'scaleX(1)';
+                }
+            }
+
+            // Function to start auto slide
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+
+            // Function to stop auto slide
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            // Initialize event listeners
+            function initEventListeners() {
+                // Scroll event for sticky navbar
+                window.addEventListener('scroll', handleScroll);
+
+                // Back to top button click
+                backToTopBtn.addEventListener('click', scrollToTop);
+
+                // Carousel navigation buttons
+                if (prevBtn) prevBtn.addEventListener('click', () => {
+                    prevSlide();
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+
+                if (nextBtn) nextBtn.addEventListener('click', () => {
+                    nextSlide();
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+
+                // Carousel indicators
+                indicators.forEach(indicator => {
+                    indicator.addEventListener('click', function () {
+                        const slideIndex = parseInt(this.getAttribute('data-index'));
+                        goToSlide(slideIndex);
+                        stopAutoSlide();
+                        startAutoSlide();
+                    });
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'ArrowLeft') {
+                        prevSlide();
+                        stopAutoSlide();
+                        startAutoSlide();
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlide();
+                        stopAutoSlide();
+                        startAutoSlide();
+                    }
+                });
+
+                // Pause auto slide on hover
+                document.querySelector('.carousel').addEventListener('mouseenter', stopAutoSlide);
+                document.querySelector('.carousel').addEventListener('mouseleave', startAutoSlide);
+
+                // Touch swipe support for mobile
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                document.querySelector('.carousel').addEventListener('touchstart', function (e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                });
+
+                document.querySelector('.carousel').addEventListener('touchend', function (e) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                });
+
+                function handleSwipe() {
+                    const swipeThreshold = 50;
+                    const difference = touchStartX - touchEndX;
+
+                    if (Math.abs(difference) > swipeThreshold) {
+                        if (difference > 0) {
+                            // Swipe left - next slide
+                            nextSlide();
+                        } else {
+                            // Swipe right - previous slide
+                            prevSlide();
+                        }
+                        stopAutoSlide();
+                        startAutoSlide();
+                    }
+                }
+            }
+
+            // Initialize everything
+            function init() {
+                // Set initial scroll state
+                handleScroll();
+
+                // Initialize event listeners
+                initEventListeners();
+
+                // Initialize carousel
+                updateCarousel();
+                startAutoSlide();
+            }
+
+            // Call init function
+            init();
+        });
+    </script>
+</body>
+
+</html>
