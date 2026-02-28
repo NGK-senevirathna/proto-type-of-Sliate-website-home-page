@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATI Network - Sri Lanka</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #050509 0%, #840000 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #770101;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .province-container {
+            margin-bottom: 40px;
+        }
+
+        .province-header {
+            background: linear-gradient(to right, #2c3e50, #720505);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .province-icon {
+            font-size: 28px;
+        }
+
+        .province-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .ati-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .ati-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .ati-card:hover {
+            transform: translateY(-5px);
+            border-color: #690000;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .ati-name {
+            color: #2c3e50;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ati-icon {
+            color: #5a0404;
+            font-size: 20px;
+        }
+
+        .ati-location {
+            color: #555;
+            margin: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .ati-contact {
+            color: #666;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ati-courses {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .course-tag {
+            display: inline-block;
+            background: #e8f4fc;
+            color: #3498db;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 3px;
+        }
+
+        .map-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #09090a 0%, #650a0a 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 15px;
+            }
+
+            .ati-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header Section -->
+        <div class="header">
+            <h1>🏫 Advanced Technological Institutes (ATI) Network</h1>
+            <p>Sri Lanka Institute of Advanced Technological Education (SLIATE)</p>
+            <p style="color: #3498db; font-weight: bold;">Island Wide Network of 21 Institutes</p>
+        </div>
+
+        <!-- Province 1: Western Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Western Province</span>
+                <span style="margin-left: auto; font-size: 14px;">5 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Dehiwala (Main Office)
+                    </div>
+                    <div class="ati-location">
+                        📍 53A, Waidya Road, Dehiwala, Colombo
+                    </div>
+                    <div class="ati-contact">
+                        📞 011-269-1307, 011-269-1572
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Engineering</span>
+                        <span class="course-tag">Business</span>
+                        <span class="course-tag">English</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Colombo
+                    </div>
+                    <div class="ati-location">
+                        📍 No. 10, Sri Saranankara Road, Colombo 10
+                    </div>
+                    <div class="ati-contact">
+                        📞 011-269-1307
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Commerce</span>
+                        <span class="course-tag">English</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Gampaha
+                    </div>
+                    <div class="ati-location">
+                        📍 Negombo Road, Gampaha
+                    </div>
+                    <div class="ati-contact">
+                        📞 033-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Engineering</span>
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Business</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Kalutara
+                    </div>
+                    <div class="ati-location">
+                        📍 Panadura Road, Kalutara
+                    </div>
+                    <div class="ati-contact">
+                        📞 034-222-4455
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Tourism</span>
+                        <span class="course-tag">Management</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Homagama
+                    </div>
+                    <div class="ati-location">
+                        📍 High Level Road, Homagama
+                    </div>
+                    <div class="ati-contact">
+                        📞 011-278-9900
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Science</span>
+                        <span class="course-tag">Technology</span>
+                        <span class="course-tag">English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 2: Central Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Central Province</span>
+                <span style="margin-left: auto; font-size: 14px;">3 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Kandy
+                    </div>
+                    <div class="ati-location">
+                        📍 Peradeniya Road, Kandy
+                    </div>
+                    <div class="ati-contact">
+                        📞 081-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Engineering</span>
+                        <span class="course-tag">Business</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Nuwara Eliya
+                    </div>
+                    <div class="ati-location">
+                        📍 Badulla Road, Nuwara Eliya
+                    </div>
+                    <div class="ati-contact">
+                        📞 052-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Tourism</span>
+                        <span class="course-tag">Hospitality</span>
+                        <span class="course-tag">Agriculture</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Matale
+                    </div>
+                    <div class="ati-location">
+                        📍 Kandy Road, Matale
+                    </div>
+                    <div class="ati-contact">
+                        📞 066-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Science</span>
+                        <span class="course-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 3: Southern Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Southern Province</span>
+                <span style="margin-left: auto; font-size: 14px;">3 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Galle
+                    </div>
+                    <div class="ati-location">
+                        📍 Colombo Road, Galle
+                    </div>
+                    <div class="ati-contact">
+                        📞 091-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Engineering</span>
+                        <span class="course-tag">English</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Matara
+                    </div>
+                    <div class="ati-location">
+                        📍 Galle Road, Matara
+                    </div>
+                    <div class="ati-contact">
+                        📞 041-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Business</span>
+                        <span class="course-tag">Commerce</span>
+                        <span class="course-tag">Science</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Hambantota
+                    </div>
+                    <div class="ati-location">
+                        📍 Tangalle Road, Hambantota
+                    </div>
+                    <div class="ati-contact">
+                        📞 047-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Fisheries</span>
+                        <span class="course-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 4: Northern Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Northern Province</span>
+                <span style="margin-left: auto; font-size: 14px;">2 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Jaffna
+                    </div>
+                    <div class="ati-location">
+                        📍 Kandy Road, Jaffna
+                    </div>
+                    <div class="ati-contact">
+                        📞 021-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Engineering</span>
+                        <span class="course-tag">Business</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Vavuniya
+                    </div>
+                    <div class="ati-location">
+                        📍 Anuradhapura Road, Vavuniya
+                    </div>
+                    <div class="ati-contact">
+                        📞 024-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Commerce</span>
+                        <span class="course-tag">Science</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 5: Eastern Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Eastern Province</span>
+                <span style="margin-left: auto; font-size: 14px;">2 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Batticaloa
+                    </div>
+                    <div class="ati-location">
+                        📍 Trincomalee Road, Batticaloa
+                    </div>
+                    <div class="ati-contact">
+                        📞 065-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">IT</span>
+                        <span class="course-tag">Business</span>
+                        <span class="course-tag">English</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Trincomalee
+                    </div>
+                    <div class="ati-location">
+                        📍 Kandy Road, Trincomalee
+                    </div>
+                    <div class="ati-contact">
+                        📞 026-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Tourism</span>
+                        <span class="course-tag">Fisheries</span>
+                        <span class="course-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 6: North Western Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">North Western Province</span>
+                <span style="margin-left: auto; font-size: 14px;">2 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Kurunegala
+                    </div>
+                    <div class="ati-location">
+                        📍 Dambulla Road, Kurunegala
+                    </div>
+                    <div class="ati-contact">
+                        📞 037-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Engineering</span>
+                        <span class="course-tag">Business</span>
+                        <span class="course-tag">Agriculture</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Puttalam
+                    </div>
+                    <div class="ati-location">
+                        📍 Chilaw Road, Puttalam
+                    </div>
+                    <div class="ati-contact">
+                        📞 032-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Fisheries</span>
+                        <span class="course-tag">Commerce</span>
+                        <span class="course-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 7: Sabaragamuwa Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Sabaragamuwa Province</span>
+                <span style="margin-left: auto; font-size: 14px;">2 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Ratnapura
+                    </div>
+                    <div class="ati-location">
+                        📍 Colombo Road, Ratnapura
+                    </div>
+                    <div class="ati-contact">
+                        📞 045-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Gemology</span>
+                        <span class="course-tag">Business</span>
+                        <span class="course-tag">Science</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Kegalle
+                    </div>
+                    <div class="ati-location">
+                        📍 Kandy Road, Kegalle
+                    </div>
+                    <div class="ati-contact">
+                        📞 035-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Commerce</span>
+                        <span class="course-tag">Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Province 8: Uva Province -->
+        <div class="province-container">
+            <div class="province-header">
+                <span class="province-icon">📍</span>
+                <span class="province-name">Uva Province</span>
+                <span style="margin-left: auto; font-size: 14px;">2 Institutes</span>
+            </div>
+
+            <div class="ati-grid">
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Badulla
+                    </div>
+                    <div class="ati-location">
+                        📍 Bandarawela Road, Badulla
+                    </div>
+                    <div class="ati-contact">
+                        📞 055-222-3344
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Business</span>
+                        <span class="course-tag">Science</span>
+                    </div>
+                </div>
+
+                <div class="ati-card">
+                    <div class="ati-name">
+                        <span class="ati-icon">🏛️</span>
+                        ATI Monaragala
+                    </div>
+                    <div class="ati-location">
+                        📍 Wellawaya Road, Monaragala
+                    </div>
+                    <div class="ati-contact">
+                        📞 055-233-4455
+                    </div>
+                    <div class="ati-courses">
+                        <span class="course-tag">Agriculture</span>
+                        <span class="course-tag">Management</span>
+                        <span class="course-tag">Commerce</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map and Statistics -->
+        <div style="margin-top: 50px; padding: 30px; background: #f8f9fa; border-radius: 10px;">
+            <h2 style="color: #2c3e50; text-align: center;">🗺️ ATI Network Statistics</h2>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="text-align: center; padding: 20px; background: white; border-radius: 10px;">
+                    <div style="font-size: 36px; color: #3498db; font-weight: bold;">21</div>
+                    <div>Total ATIs</div>
+                </div>
+
+                <div style="text-align: center; padding: 20px; background: white; border-radius: 10px;">
+                    <div style="font-size: 36px; color: #2ecc71; font-weight: bold;">9</div>
+                    <div>Provinces Covered</div>
+                </div>
+
+                <div style="text-align: center; padding: 20px; background: white; border-radius: 10px;">
+                    <div style="font-size: 36px; color: #9b59b6; font-weight: bold;">25+</div>
+                    <div>Courses Offered</div>
+                </div>
+
+                <div style="text-align: center; padding: 20px; background: white; border-radius: 10px;">
+                    <div style="font-size: 36px; color: #e74c3c; font-weight: bold;">500+</div>
+                    <div>Lecturers & Staff</div>
+                </div>
+            </div>
+
+            <div class="map-placeholder">
+                <div>
+                    <div style="font-size: 24px;">Sri Lanka ATI Network Map</div>
+                    <p>Advanced Technological Institutes across all 9 provinces</p>
+                    <p>Click any location to see institute details</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Sri Lanka Institute of Advanced Technological Education (SLIATE)</p>
+            <p>Ministry of Higher Education, Government of Sri Lanka</p>
+            <p>Contact: (+94) 112 691307 | Email: info@sliate.ac.lk | Website: www.sliate.ac.lk</p>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

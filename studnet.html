@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HNDIT1022 - Web Design Group Members</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background: linear-gradient(135deg, #a00000 0%, #000000 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0b0b0c, #930404);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.8rem;
+        }
+
+        .subject {
+            color: #3498db;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .group-leader-info {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #e8f4fc;
+            border-radius: 50px;
+            margin-top: 10px;
+            border-left: 5px solid #3498db;
+        }
+
+        .group-leader-info i {
+            color: #e74c3c;
+            margin-right: 8px;
+        }
+
+        .main-content {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            overflow: hidden;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+        thead {
+            background: linear-gradient(90deg, #890101, #000000);
+            color: white;
+        }
+
+        th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        th:first-child {
+            border-radius: 10px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 10px 0 0;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e1e5eb;
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        tbody tr.leader-row {
+            background-color: #fff9e6;
+            border-left: 5px solid #f39c12;
+        }
+
+        tbody tr.leader-row:hover {
+            background-color: #fff5d6;
+        }
+
+        td {
+            padding: 18px 15px;
+        }
+
+        .member-id {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .leader-badge {
+            display: inline-block;
+            background-color: #f39c12;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .total-members {
+            background-color: #e8f6ef;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+            color: #27ae60;
+            border-left: 5px solid #27ae60;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subject {
+                font-size: 1.2rem;
+            }
+
+            th,
+            td {
+                padding: 12px 10px;
+            }
+
+            .main-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Web Design Group Members</h1>
+            <div class="subject">HNDIT1022 - WEB DESIGN SUBJECT</div>
+            <p>This page displays all group members participating in the Web Design project</p>
+            <div class="group-leader-info">
+                <i class="fas fa-crown"></i>
+                <strong>Group Leader:</strong> K.G.N.T. SENEVIRATHNA (TAN/IT/2025/F/0034)
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="total-members">
+                <i class="fas fa-users"></i> Total Group Members: 10
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="10%">#</th>
+                            <th width="30%">Member ID</th>
+                            <th width="40%">Additional Info</th>
+                            <th width="20%">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="leader-row">
+                            <td>1</td>
+                            <td class="member-id">TAN/IT/2025/F/0034</td>
+                            <td>K.G.N.T. SENEVIRATHNA</td>
+                            <td><span class="leader-badge">GROUP LEADER</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="member-id">TAN/IT/2025/F/0057</td>
+                            <td>D.M.P.S Dissanayaka</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="member-id">TAN/IT/2025/F/0078</td>
+                            <td>RP. Hansika sewwandi </td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="member-id">TAN/IT/2025/F/0064</td>
+                            <td>L.A.P Dinithi Dasunika</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="member-id">TAN/IT/2025/F/0042</td>
+                            <td>Saduni disanayaka</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="member-id">TAN/IT/2025/F/0081</td>
+                            <td>K.i.hansika</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="member-id">TAN/IT/2025/F/0099</td>
+                            <td>ishara</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="member-id">TAN/IT/2025/F/0080</td>
+                            <td>tharu</td>
+                            <td>Member</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="member-id">TAN/IT/2025/F/0045</td>
+                            <td>A.G.A .H saksalani</td>
+                            <td>Member</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="footer">
+                <p>HNDIT1022 Web Design Project &copy; 2026 | Created with HTML, CSS & JavaScript(NGK)</p>
+            </div>
+        </div>
+
+        <script>
+            // Add interactive effects to table rows
+            document.addEventListener('DOMContentLoaded', function () {
+                const tableRows = document.querySelectorAll('tbody tr');
+
+                tableRows.forEach(row => {
+                    row.addEventListener('click', function () {
+                        // Remove any previously selected row
+                        tableRows.forEach(r => r.classList.remove('selected'));
+
+                        // Add selected class to clicked row
+                        this.classList.add('selected');
+
+                        // Get member ID from the row
+                        const memberId = this.querySelector('.member-id').textContent;
+                        console.log(`Selected member: ${memberId}`);
+                    });
+                });
+
+                // Highlight the leader row by default
+                const leaderRow = document.querySelector('.leader-row');
+                leaderRow.classList.add('selected');
+            });
+        </script>
+</body>
+
+</html>
